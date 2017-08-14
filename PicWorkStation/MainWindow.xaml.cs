@@ -29,25 +29,40 @@ namespace PicWorkStation
         }
 
 
+        private Point ptMouseStart;  
         private void ImageCanvasControl_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //ImageCanvasControl.RenderTransform();
+            ptMouseStart = e.GetPosition(ImageCanvasControl);
+            this.Cursor = Cursors.Hand;
         }
 
         private void ImageCanvasControl_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Console.WriteLine("ImageCanvasControl_OnMouseLeftButtonUp");
+            this.Cursor = Cursors.Arrow;
         }
 
         private void ImageCanvasControl_OnMouseMove(object sender, MouseEventArgs e)
         {
-            Console.WriteLine("ImageCanvasControl_OnMouseMove");
+            if (this.Cursor == Cursors.Hand && e.LeftButton == MouseButtonState.Pressed)
+            {
+                Point ptMouse = e.GetPosition(ImageCanvasControl);
+                ImageCanvasControl.OffsetX += (ptMouse.X - ptMouseStart.X) / 160;
+                ImageCanvasControl.OffsetY += (ptMouse.Y - ptMouseStart.Y) / 160;
+                ImageCanvasControl.InvalidateVisual();
+            }
         }
         private void ImageCanvasControl_OnMouseWheel(object sender, MouseWheelEventArgs e)
         {
-            Point center = e.GetPosition(ImageCanvasControl);
             var changedValue = Convert.ToDouble(e.Delta);
             ImageCanvasControl.Scale += (changedValue / 1200);
+            ImageCanvasControl.InvalidateVisual();
+        }
+
+        private void ImageReset_Click(object sender, RoutedEventArgs e)
+        {
+            ImageCanvasControl.Scale = 1.0;
+            ImageCanvasControl.OffsetX = 0.0;
+            ImageCanvasControl.OffsetY = 0.0;
             ImageCanvasControl.InvalidateVisual();
         }
     }

@@ -4,3 +4,6 @@
 
 /PicWorkStation/bin/Debug
 /PicWorkStation/obj/Debug
+/PicWorkStation/bin/Release
+/PicWorkStation/obj/Release
+/.vs/PicWorkStation/v14

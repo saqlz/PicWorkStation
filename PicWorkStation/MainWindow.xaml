@@ -5,22 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PicWorkStation"
         mc:Ignorable="d"
-        Title="图像处理工具" Height="450" Width="650" ResizeMode="NoResize">
+        Title="图像处理工具" Height="550" Width="850" ResizeMode="NoResize">
     <Grid>
         <TabControl x:Name="tabControl" DockPanel.Dock="Top">
-            <TabItem Header="图像展示">
-                <Border BorderBrush="#A0A0A0" BorderThickness="2" CornerRadius="5" Width="500" Height="380" HorizontalAlignment="Left">
-                    <local:ImageCanvas x:Name="ImageCanvasControl" ClipToBounds="True"
+            <TabItem Header="图像展示" FontSize="18">
+                <Grid>
+                    <Border BorderBrush="#A0A0A0" BorderThickness="2" CornerRadius="5" Width="500" Height="470" HorizontalAlignment="Left">
+                        <local:ImageCanvas x:Name="ImageCanvasControl" ClipToBounds="True"
                                     MouseLeftButtonDown="ImageCanvasControl_OnMouseLeftButtonDown"
                                     MouseMove="ImageCanvasControl_OnMouseMove"
+                                    MouseUp="ImageCanvasControl_OnMouseLeftButtonUp"
                                     MouseLeftButtonUp="ImageCanvasControl_OnMouseLeftButtonUp"
                                     MouseWheel="ImageCanvasControl_OnMouseWheel"/>
-                </Border>
+                    </Border>
+                    <Button x:Name="button" Content="图像重置" FontSize="18" Margin="514,421,12,10" Click="ImageReset_Click"/>
+                </Grid>
             </TabItem>
-            <TabItem Header="计算">
+            <TabItem Header="计算" FontSize="18">
             </TabItem>
-            <TabItem Header="小工具">
+            <TabItem Header="小工具" FontSize="18">
             </TabItem>
+
         </TabControl>
     </Grid>
 </Window>

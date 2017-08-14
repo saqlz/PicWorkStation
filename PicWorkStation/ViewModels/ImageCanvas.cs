@@ -11,6 +11,14 @@ namespace PicWorkStation
 {
     public class ImageCanvas : Canvas
     {
+        private ScaleTransform _scaleTransform;
+        private TranslateTransform _translateTransform;
+
+        public ImageCanvas()
+        {
+            _scaleTransform = new ScaleTransform(_scale, _scale);
+            _translateTransform = new TranslateTransform(_offsetX, _offsetY);
+        }
 
         public ImageSource CanvasImageSource
         {
@@ -29,11 +37,15 @@ namespace PicWorkStation
             get { return _scale; }
             set
             {
-                if (Math.Abs(value - _scale) < 1e-5 || value <= 1)
+                if (Math.Abs(value - _scale) < 1e-5 || value < 1)
                 {
                     return;
                 }
                 _scale = value;
+                _scaleTransform.ScaleX = _scale;
+                _scaleTransform.ScaleY = _scale;
+                _scaleTransform.CenterX = this.ActualWidth / 2;
+                _scaleTransform.CenterY = this.ActualHeight / 2;
             }
         }
 
@@ -43,11 +55,8 @@ namespace PicWorkStation
             get { return _offsetX; }
             set
             {
-                if (Math.Abs(value - _offsetX) < 1e-5)
-                {
-                    return;
-                }
                 _offsetX = value;
+                _translateTransform.X = _offsetX;
             }
         }
 
@@ -57,20 +66,16 @@ namespace PicWorkStation
             get { return _offsetY; }
             set
             {
-                if (Math.Abs(value - _offsetY) < 1e-5)
-                {
-                    return;
-                }
                 _offsetY = value;
+                _translateTransform.Y = _offsetY;
             }
         }
 
-
         protected override void OnRender(System.Windows.Media.DrawingContext dc)
         {
-            dc.PushTransform(new TranslateTransform(_offsetX, _offsetY));
-            Rect rr = new Rect(0, 0, RenderSize.Width * _scale, RenderSize.Height * _scale);
-            dc.DrawImage(CanvasImageSource, rr);
+            dc.PushTransform(_scaleTransform);
+            dc.PushTransform(_translateTransform);
+            dc.DrawImage(CanvasImageSource, new Rect(0, 0, RenderSize.Width, RenderSize.Height));
             base.OnRender(dc);
         }
 
