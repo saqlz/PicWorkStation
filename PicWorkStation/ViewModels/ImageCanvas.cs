@@ -11,6 +11,7 @@ namespace PicWorkStation
 {
     public class ImageCanvas : Canvas
     {
+
         public ImageSource CanvasImageSource
         {
             get { return (ImageSource)GetValue(CanvasImageSourceProperty); }
@@ -22,7 +23,7 @@ namespace PicWorkStation
             typeof(ImageCanvas), new FrameworkPropertyMetadata(default(ImageSource)));
 
 
-        private double _scale = 2.0;
+        private double _scale = 1.0;
         public double Scale
         {
             get { return _scale; }

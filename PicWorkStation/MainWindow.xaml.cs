@@ -24,7 +24,7 @@ namespace PicWorkStation
         public MainWindow()
         {
             InitializeComponent();
-            BitmapImage img = new BitmapImage (new Uri (@"C:\Users\qinglin.zhang\Desktop\timg.jpg"));
+            BitmapImage img = new BitmapImage (new Uri (@"D:\GitHub\PicWorkStation\PicWorkStation\Images\timg.jpg"));
             ImageCanvasControl.CanvasImageSource = img;
         }
 
@@ -45,8 +45,10 @@ namespace PicWorkStation
         }
         private void ImageCanvasControl_OnMouseWheel(object sender, MouseWheelEventArgs e)
         {
-            Point cen = e.GetPosition(ImageCanvasControl);
-            //(ImageCanvasControl.CanvasImageSource as Image).RenderTransform
+            Point center = e.GetPosition(ImageCanvasControl);
+            var changedValue = Convert.ToDouble(e.Delta);
+            ImageCanvasControl.Scale += (changedValue / 1200);
+            ImageCanvasControl.InvalidateVisual();
         }
     }
 }
