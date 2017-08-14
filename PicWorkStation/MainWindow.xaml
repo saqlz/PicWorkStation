@@ -16,7 +16,8 @@
                                     MouseMove="ImageCanvasControl_OnMouseMove"
                                     MouseUp="ImageCanvasControl_OnMouseLeftButtonUp"
                                     MouseLeftButtonUp="ImageCanvasControl_OnMouseLeftButtonUp"
-                                    MouseWheel="ImageCanvasControl_OnMouseWheel"/>
+                                    MouseWheel="ImageCanvasControl_OnMouseWheel">
+                        </local:ImageCanvas>
                     </Border>
                     <Button x:Name="button" Content="图像重置" FontSize="18" Margin="514,421,12,10" Click="ImageReset_Click"/>
                 </Grid>

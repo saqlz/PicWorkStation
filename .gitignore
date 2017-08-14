@@ -7,3 +7,5 @@
 /PicWorkStation/bin/Release
 /PicWorkStation/obj/Release
 /.vs/PicWorkStation/v14
+/PicWorkStation/bin/x64/Debug
+/PicWorkStation/obj/x64/Debug
