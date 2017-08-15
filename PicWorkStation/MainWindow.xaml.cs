@@ -26,6 +26,9 @@ namespace PicWorkStation
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 鼠标控制平移开始
+        /// </summary>
         private Point ptMouseStart;  
         private void ImageCanvasControl_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -33,11 +36,17 @@ namespace PicWorkStation
             this.Cursor = Cursors.Hand;
         }
 
+        /// <summary>
+        /// 鼠标控制平移结束
+        /// </summary>
         private void ImageCanvasControl_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             this.Cursor = Cursors.Arrow;
         }
 
+        /// <summary>
+        /// 鼠标控制平移过程
+        /// </summary>
         private void ImageCanvasControl_OnMouseMove(object sender, MouseEventArgs e)
         {
             if (this.Cursor == Cursors.Hand && e.LeftButton == MouseButtonState.Pressed)
@@ -48,6 +57,10 @@ namespace PicWorkStation
                 ImageCanvasControl.InvalidateVisual();
             }
         }
+
+        /// <summary>
+        /// 鼠标控制缩放
+        /// </summary>
         private void ImageCanvasControl_OnMouseWheel(object sender, MouseWheelEventArgs e)
         {
             var changedValue = Convert.ToDouble(e.Delta);
@@ -55,6 +68,9 @@ namespace PicWorkStation
             ImageCanvasControl.InvalidateVisual();
         }
 
+        /// <summary>
+        /// 按钮控制图像重置
+        /// </summary>
         private void ImageReset_Click(object sender, RoutedEventArgs e)
         {
             ImageCanvasControl.Scale = 1.0;
@@ -63,21 +79,33 @@ namespace PicWorkStation
             ImageCanvasControl.InvalidateVisual();
         }
 
+        /// <summary>
+        /// 加载Windows系统剪切板的图像数据
+        /// </summary>
         private void LoadImageFromClipboard_Click(object sender, RoutedEventArgs e)
         {
             ImageCanvasControl.LoadImageFromClipboard();
         }
 
+        /// <summary>
+        /// 加载Windows系统剪切板的WEB图像地址
+        /// </summary>
         private void LoadImageFromLinkAddress_Click(object sender, RoutedEventArgs e)
         {
             ImageCanvasControl.LoadImageFromLinkAddress();
         }
 
+        /// <summary>
+        /// 加载Windows系统剪切板的本地图像地址
+        /// </summary>
         private void LoadImageFromLocalFile_Click(object sender, RoutedEventArgs e)
         {
             ImageCanvasControl.LoadImageFromLocalFile();
         }
 
+        /// <summary>
+        /// 监听KeyDown事件 Ctrl+V
+        /// </summary>
         private void WindowControl_OnKeyDown(object sender, KeyEventArgs e)
         {
             if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.V))
@@ -87,5 +115,7 @@ namespace PicWorkStation
                 ImageCanvasControl.LoadImageFromLocalFile();
             }
         }
+
+
     }
 }
