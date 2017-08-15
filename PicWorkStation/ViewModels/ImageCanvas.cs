@@ -12,6 +12,8 @@ using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Color = System.Drawing.Color;
+using Pen = System.Windows.Media.Pen;
 
 namespace PicWorkStation
 {
@@ -178,6 +180,10 @@ namespace PicWorkStation
             dc.PushTransform(_scaleTransform);
             dc.PushTransform(_translateTransform);
             dc.DrawImage(CanvasImageSource, new Rect(0, 0, RenderSize.Width, RenderSize.Height));
+
+            ImageBrush imgBrush = BrushHelper.GetImageBrush("贵族金");
+            Pen redpen = new Pen(imgBrush,10);
+            dc.DrawLine(redpen, new System.Windows.Point(0,0), new System.Windows.Point(100, 200));
             base.OnRender(dc);
         }
 

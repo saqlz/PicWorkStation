@@ -24,6 +24,12 @@ namespace PicWorkStation
         public MainWindow()
         {
             InitializeComponent();
+
+            var styleFileAndColor = new List<StyleFileAndColor>();
+            //styleFileAndColor.Add(new StyleFileAndColor());
+            styleFileAndColor.AddRange(BrushHelper.GetImageBrushFullPath().Select(brushFullPath => 
+                    new StyleFileAndColor() {Image = brushFullPath, Desc = System.IO.Path.GetFileNameWithoutExtension(brushFullPath)}));
+            this.ColorComBoxControl.ItemsSource = styleFileAndColor;
         }
 
         /// <summary>
@@ -116,6 +122,26 @@ namespace PicWorkStation
             }
         }
 
+        /// <summary>
+        /// 清空样式
+        /// </summary>
+        private void ClearFillImage_Click(object sender, RoutedEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
 
+        /// <summary>
+        /// 清空样式
+        /// </summary>
+        private void CopyFillImage_Click(object sender, RoutedEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+    }
+
+    public class StyleFileAndColor
+    {
+        public string Image { get; set; }
+        public string Desc { get; set; }
     }
 }
