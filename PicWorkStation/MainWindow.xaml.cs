@@ -24,10 +24,7 @@ namespace PicWorkStation
         public MainWindow()
         {
             InitializeComponent();
-            BitmapImage img = new BitmapImage (new Uri (@"D:\GitHub\PicWorkStation\PicWorkStation\Images\timg.jpg"));
-            ImageCanvasControl.CanvasImageSource = img;
         }
-
 
         private Point ptMouseStart;  
         private void ImageCanvasControl_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -46,8 +43,8 @@ namespace PicWorkStation
             if (this.Cursor == Cursors.Hand && e.LeftButton == MouseButtonState.Pressed)
             {
                 Point ptMouse = e.GetPosition(ImageCanvasControl);
-                ImageCanvasControl.OffsetX += (ptMouse.X - ptMouseStart.X) / 160;
-                ImageCanvasControl.OffsetY += (ptMouse.Y - ptMouseStart.Y) / 160;
+                ImageCanvasControl.OffsetX += (ptMouse.X - ptMouseStart.X) / 120;
+                ImageCanvasControl.OffsetY += (ptMouse.Y - ptMouseStart.Y) / 120;
                 ImageCanvasControl.InvalidateVisual();
             }
         }
@@ -64,6 +61,31 @@ namespace PicWorkStation
             ImageCanvasControl.OffsetX = 0.0;
             ImageCanvasControl.OffsetY = 0.0;
             ImageCanvasControl.InvalidateVisual();
+        }
+
+        private void LoadImageFromClipboard_Click(object sender, RoutedEventArgs e)
+        {
+            ImageCanvasControl.LoadImageFromClipboard();
+        }
+
+        private void LoadImageFromLinkAddress_Click(object sender, RoutedEventArgs e)
+        {
+            ImageCanvasControl.LoadImageFromLinkAddress();
+        }
+
+        private void LoadImageFromLocalFile_Click(object sender, RoutedEventArgs e)
+        {
+            ImageCanvasControl.LoadImageFromLocalFile();
+        }
+
+        private void WindowControl_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.V))
+            {
+                ImageCanvasControl.LoadImageFromClipboard();
+                ImageCanvasControl.LoadImageFromLinkAddress();
+                ImageCanvasControl.LoadImageFromLocalFile();
+            }
         }
     }
 }

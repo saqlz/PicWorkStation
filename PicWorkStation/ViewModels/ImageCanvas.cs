@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,9 +18,6 @@ namespace PicWorkStation
     [Serializable]
     public class ImageCanvas : Canvas
     {
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        public static extern bool DeleteObject(IntPtr hObject);
-
         private ScaleTransform _scaleTransform;
         private TranslateTransform _translateTransform;
 
@@ -37,25 +36,89 @@ namespace PicWorkStation
             uploadImageLinkMenu.Header = "加载复制链接地址的图片";
             uploadImageLinkMenu.Click += btnLoadImageLink_Click;
             this.ContextMenu.Items.Add(uploadImageLinkMenu);
+
+            var uploadLocalFileMenu = new MenuItem();
+            uploadLocalFileMenu.Header = "加载复制链接地址的图片";
+            uploadLocalFileMenu.Click += btnLoadLocalFile_Click;
+            this.ContextMenu.Items.Add(uploadLocalFileMenu);
+        }
+
+
+
+        private void btnLoadImage_Click(object sender, RoutedEventArgs e)
+        {
+            LoadImageFromClipboard();
+        }
+
+        public void LoadImageFromClipboard()
+        {
+            try
+            {
+                var bmp = ClipboardMessage.ImageFromClipboardDib();
+                if (bmp != null)
+                {
+                    this.CanvasImageSource = bmp;
+                    this.InvalidateVisual();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void btnLoadImageLink_Click(object sender, RoutedEventArgs e)
         {
-            BitmapSource bmp = null;//new ClipboardMessage().GetBitmapSource();
-            if (bmp != null)
+            LoadImageFromLinkAddress();
+        }
+
+        public void LoadImageFromLinkAddress()
+        {
+            try
             {
-                this.CanvasImageSource = bmp;
-                this.InvalidateVisual();
+                var linkAddress = ClipboardMessage.GetLinkAddressFromClipboard();
+                var request = (HttpWebRequest)WebRequest.Create(linkAddress);
+                using (var response = request.GetResponse())
+                {
+                    using (var stream = response.GetResponseStream())
+                    {
+                        var bitmap = System.Drawing.Image.FromStream(stream) as Bitmap;
+                        var bitMapSource = Imaging.CreateBitmapSourceFromHBitmap(bitmap.GetHbitmap(), IntPtr.Zero,
+                            Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                        this.CanvasImageSource = bitMapSource;
+                        this.InvalidateVisual();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
-        private void btnLoadImage_Click(object sender, RoutedEventArgs e)
+        private void btnLoadLocalFile_Click(object sender, RoutedEventArgs e)
         {
-            var bmp = new ClipboardMessage().ImageFromClipboardDib();
-            if (bmp != null)
+            LoadImageFromLocalFile();
+        }
+
+        public void LoadImageFromLocalFile()
+        {
+            try
             {
-                this.CanvasImageSource = bmp;
-                this.InvalidateVisual();
+                var localFile = ClipboardMessage.GetImageFileFromClipboard();
+                using (var fileStream = new FileStream(localFile, FileMode.Open))
+                {
+                    var bitmap = System.Drawing.Image.FromStream(fileStream) as Bitmap;
+                    var bitMapSource = Imaging.CreateBitmapSourceFromHBitmap(bitmap.GetHbitmap(), IntPtr.Zero,
+                        Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                    this.CanvasImageSource = bitMapSource;
+                    this.InvalidateVisual();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -76,7 +139,7 @@ namespace PicWorkStation
             get { return _scale; }
             set
             {
-                if (Math.Abs(value - _scale) < 1e-5 || value < 1)
+                if (Math.Abs(value - _scale) < 1e-5 || value < 0.1)
                 {
                     return;
                 }

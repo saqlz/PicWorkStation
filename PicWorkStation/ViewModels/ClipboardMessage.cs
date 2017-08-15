@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -38,9 +39,41 @@ namespace PicWorkStation
             public int biClrImportant;
         }
 
-        public ImageSource ImageFromClipboardDib()
+        public static string GetLinkAddressFromClipboard()
         {
-            MemoryStream ms = Clipboard.GetData("DeviceIndependentBitmap") as MemoryStream;
+            var linkAddress = Clipboard.GetText();
+            return linkAddress;
+        }
+
+        public static string GetImageFileFromClipboard()
+        {
+            var fileDropList = Clipboard.GetFileDropList();
+            if (fileDropList == null || fileDropList.Count == 0)
+            {
+                return "";
+            }
+
+            bool isImage = false;
+            var strImageFilter = ".jpeg|.gif|.jpg|.png|.bmp|.pic|.tiff|.ico|.iff|.lbm|.mag|.mac|.mpt|.opt|";
+            foreach (var filter in strImageFilter.Split('|'))
+            {
+                if (fileDropList[0].Contains(filter))
+                {
+                    isImage = true;
+                    break;
+                }
+            }
+
+            if (isImage)
+            {
+                return fileDropList[0];
+            }
+            return "";
+        }
+
+        public static ImageSource ImageFromClipboardDib()
+        {
+            var ms = Clipboard.GetData("DeviceIndependentBitmap") as MemoryStream;
             if (ms != null)
             {
                 byte[] dibBuffer = new byte[ms.Length];
@@ -59,7 +92,7 @@ namespace PicWorkStation
                 fileHeader.bfReserved2 = 0;
                 fileHeader.bfOffBits = fileHeaderSize + infoHeaderSize + infoHeader.biClrUsed * 4;
 
-                byte[] fileHeaderBytes = ToByteArray<BITMAPFILEHEADER>(fileHeader);
+                byte[] fileHeaderBytes = ToByteArray(fileHeader);
 
                 MemoryStream msBitmap = new MemoryStream();
                 msBitmap.Write(fileHeaderBytes, 0, fileHeaderSize);
@@ -107,7 +140,5 @@ namespace PicWorkStation
                     Marshal.FreeHGlobal(ptr);
             }
         }
-
     }
-
 }
