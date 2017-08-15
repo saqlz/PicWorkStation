@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using Color = System.Drawing.Color;
 using Pen = System.Windows.Media.Pen;
@@ -175,15 +176,38 @@ namespace PicWorkStation
             }
         }
 
+        private string _str
+
+
         protected override void OnRender(System.Windows.Media.DrawingContext dc)
         {
             dc.PushTransform(_scaleTransform);
             dc.PushTransform(_translateTransform);
             dc.DrawImage(CanvasImageSource, new Rect(0, 0, RenderSize.Width, RenderSize.Height));
 
+
+
+
+
+
+
             ImageBrush imgBrush = BrushHelper.GetImageBrush("贵族金");
-            Pen redpen = new Pen(imgBrush,10);
-            dc.DrawLine(redpen, new System.Windows.Point(0,0), new System.Windows.Point(100, 200));
+            imgBrush.Clone();
+            //Pen renderPen = new Pen(imgBrush, imgBrush.ImageSource.Width);
+            //dc.DrawLine(renderPen, new System.Windows.Point(30, 10), new System.Windows.Point(30, imgBrush.ImageSource.Height + 10));
+
+
+            Pen renderPen = new Pen(imgBrush, imgBrush.ImageSource.Width);
+            imgBrush.RelativeTransform = new RotateTransform(90, 0.5, 0.5);
+            dc.DrawLine(renderPen, new System.Windows.Point(100, 100), new System.Windows.Point(imgBrush.ImageSource.Height + 100, 100));
+
+      //      imgBrush.RelativeTransform = new RotateTransform(0, 0.5, 0.5);
+            dc.DrawLine(renderPen, new System.Windows.Point(30, 10), new System.Windows.Point(30, imgBrush.ImageSource.Height + 10));
+
+            //dc.DrawRectangle(null,redpen, new Rect(0, 0, RenderSize.Width/2, RenderSize.Height/2));
+            // imgBrush.RelativeTransform = new RotateTransform(90, 0.5, 0.5);
+
+
             base.OnRender(dc);
         }
 

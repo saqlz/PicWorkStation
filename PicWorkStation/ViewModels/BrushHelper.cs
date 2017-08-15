@@ -27,7 +27,7 @@ namespace PicWorkStation
                 {
                     var imgBrush = new ImageBrush();
                     imgBrush.ImageSource = new BitmapImage(new Uri(filePath, UriKind.RelativeOrAbsolute));
-                    imgBrush.Stretch = Stretch.UniformToFill;
+                    imgBrush.Stretch = Stretch.Fill;
                     dicNameBrushes.Add(fileName, imgBrush);
                 }
             }
