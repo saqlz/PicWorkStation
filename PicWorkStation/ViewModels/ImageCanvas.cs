@@ -176,8 +176,19 @@ namespace PicWorkStation
             }
         }
 
-        private string _str
-
+        private string _strImageBrushStyle;
+        public string StrImageBrushStyle
+        {
+            get { return _strImageBrushStyle; }
+            set
+            {
+                if (string.IsNullOrEmpty(_strImageBrushStyle))
+                {
+                    return;
+                }
+                _strImageBrushStyle = value;
+            }
+        }
 
         protected override void OnRender(System.Windows.Media.DrawingContext dc)
         {
@@ -185,11 +196,10 @@ namespace PicWorkStation
             dc.PushTransform(_translateTransform);
             dc.DrawImage(CanvasImageSource, new Rect(0, 0, RenderSize.Width, RenderSize.Height));
 
-
-
-
-
-
+            if (!string.IsNullOrEmpty(_strImageBrushStyle))
+            {
+                return;
+            }
 
             ImageBrush imgBrush = BrushHelper.GetImageBrush("贵族金");
             imgBrush.Clone();
