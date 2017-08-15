@@ -93,7 +93,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\BrushHelper.cs" />
+    <Compile Include="Helpers\BrushHelper.cs" />
     <Compile Include="ViewModels\ClipboardMessage.cs" />
     <Compile Include="ViewModels\ImageCanvas.cs" />
     <Page Include="MainWindow.xaml">
