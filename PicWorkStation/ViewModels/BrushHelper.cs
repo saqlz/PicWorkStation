@@ -13,7 +13,7 @@ namespace PicWorkStation
 {
     public static class BrushHelper
     {
-        private static readonly string FilePath = AppDomain.CurrentDomain.BaseDirectory + @"\Images";
+        private static readonly string FilePath = AppDomain.CurrentDomain.BaseDirectory + @"BrushImages";
         private static Dictionary<string, ImageBrush> dicNameBrushes = new Dictionary<string, ImageBrush>();
         private static bool isLoaded;
 

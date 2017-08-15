@@ -26,10 +26,11 @@ namespace PicWorkStation
             InitializeComponent();
 
             var styleFileAndColor = new List<StyleFileAndColor>();
-            //styleFileAndColor.Add(new StyleFileAndColor());
+            styleFileAndColor.Add(new StyleFileAndColor());
             styleFileAndColor.AddRange(BrushHelper.GetImageBrushFullPath().Select(brushFullPath => 
                     new StyleFileAndColor() {Image = brushFullPath, Desc = System.IO.Path.GetFileNameWithoutExtension(brushFullPath)}));
             this.ColorComBoxControl.ItemsSource = styleFileAndColor;
+            this.ColorComBoxControl.SelectionChanged += ColorComBoxControl_SelectionChanged;
         }
 
         /// <summary>
@@ -120,6 +121,12 @@ namespace PicWorkStation
                 ImageCanvasControl.LoadImageFromLinkAddress();
                 ImageCanvasControl.LoadImageFromLocalFile();
             }
+        }
+
+        private void ColorComBoxControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ImageCanvasControl.StrImageBrushStyle = (this.ColorComBoxControl.SelectedItem as StyleFileAndColor).Desc;
+            ImageCanvasControl.InvalidateVisual();
         }
 
         /// <summary>

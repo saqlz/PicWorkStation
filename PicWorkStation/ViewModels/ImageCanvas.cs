@@ -182,7 +182,7 @@ namespace PicWorkStation
             get { return _strImageBrushStyle; }
             set
             {
-                if (string.IsNullOrEmpty(_strImageBrushStyle))
+                if (string.IsNullOrEmpty(value))
                 {
                     return;
                 }
@@ -198,21 +198,20 @@ namespace PicWorkStation
 
             if (!string.IsNullOrEmpty(_strImageBrushStyle))
             {
-                return;
+                ImageBrush imgBrush = BrushHelper.GetImageBrush(_strImageBrushStyle);
+                Pen renderPen = new Pen(imgBrush, imgBrush.ImageSource.Width);
+                imgBrush.RelativeTransform = new RotateTransform(90, 0.5, 0.5);
+                dc.DrawLine(renderPen, new System.Windows.Point(100, 100), new System.Windows.Point(imgBrush.ImageSource.Height + 100, 100));
+
             }
 
-            ImageBrush imgBrush = BrushHelper.GetImageBrush("贵族金");
-            imgBrush.Clone();
             //Pen renderPen = new Pen(imgBrush, imgBrush.ImageSource.Width);
             //dc.DrawLine(renderPen, new System.Windows.Point(30, 10), new System.Windows.Point(30, imgBrush.ImageSource.Height + 10));
 
 
-            Pen renderPen = new Pen(imgBrush, imgBrush.ImageSource.Width);
-            imgBrush.RelativeTransform = new RotateTransform(90, 0.5, 0.5);
-            dc.DrawLine(renderPen, new System.Windows.Point(100, 100), new System.Windows.Point(imgBrush.ImageSource.Height + 100, 100));
 
-      //      imgBrush.RelativeTransform = new RotateTransform(0, 0.5, 0.5);
-            dc.DrawLine(renderPen, new System.Windows.Point(30, 10), new System.Windows.Point(30, imgBrush.ImageSource.Height + 10));
+            //      imgBrush.RelativeTransform = new RotateTransform(0, 0.5, 0.5);
+           // dc.DrawLine(renderPen, new System.Windows.Point(30, 10), new System.Windows.Point(30, imgBrush.ImageSource.Height + 10));
 
             //dc.DrawRectangle(null,redpen, new Rect(0, 0, RenderSize.Width/2, RenderSize.Height/2));
             // imgBrush.RelativeTransform = new RotateTransform(90, 0.5, 0.5);

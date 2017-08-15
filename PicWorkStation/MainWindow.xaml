@@ -25,7 +25,8 @@
                     <Button x:Name="button_LoadImageFromLinkAddress" Content="加载复制的图片链接" FontSize="18" Margin="516,301,9.6,129.6" Click="LoadImageFromLinkAddress_Click"/>
                     <Button x:Name="button_LoadImageFromLocalFile" Content="加载复制本地的图片" FontSize="18" Margin="516,361,9.6,69.6" Click="LoadImageFromLocalFile_Click"/>
                     <Label Content="请选择样式" HorizontalAlignment="Left" Margin="516,8,0,0" VerticalAlignment="Top" Width="101"/>
-                    <ComboBox x:Name="ColorComBoxControl" HorizontalAlignment="Left" Margin="516,47,0,0" VerticalAlignment="Top" Width="305" Height="40">
+                    <ComboBox x:Name="ColorComBoxControl" HorizontalAlignment="Left" Margin="516,47,0,0" 
+                              VerticalAlignment="Top" Width="305" Height="40">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
