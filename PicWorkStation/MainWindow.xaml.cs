@@ -25,11 +25,12 @@ namespace PicWorkStation
         {
             InitializeComponent();
 
+            //Combobox Item
             var styleFileAndColor = new List<StyleFileAndColor>();
-            styleFileAndColor.Add(new StyleFileAndColor());
             styleFileAndColor.AddRange(BrushHelper.GetImageBrushFullPath().Select(brushFullPath => 
                     new StyleFileAndColor() {Image = brushFullPath, Desc = System.IO.Path.GetFileNameWithoutExtension(brushFullPath)}));
             this.ColorComBoxControl.ItemsSource = styleFileAndColor;
+            this.ColorComBoxControl.SelectedIndex = 0;
             this.ColorComBoxControl.SelectionChanged += ColorComBoxControl_SelectionChanged;
         }
 
@@ -123,26 +124,41 @@ namespace PicWorkStation
             }
         }
 
-        private void ColorComBoxControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /// <summary>
+        /// ColorCheckboxControl_Checked 选中事件
+        /// </summary>
+        private void ColorCheckboxControl_Checked(object sender, RoutedEventArgs e)
         {
-            ImageCanvasControl.StrImageBrushStyle = (this.ColorComBoxControl.SelectedItem as StyleFileAndColor).Desc;
+            if (ColorCheckboxControl.IsChecked.Value)
+            {
+                ImageCanvasControl.StrImageBrushStyle = (this.ColorComBoxControl.SelectedItem as StyleFileAndColor).Desc;
+            }
+            else
+            {
+                ImageCanvasControl.StrImageBrushStyle = string.Empty;
+            }
             ImageCanvasControl.InvalidateVisual();
         }
 
         /// <summary>
-        /// 清空样式
+        /// ColorComBoxControl Combobox切换事件
         /// </summary>
-        private void ClearFillImage_Click(object sender, RoutedEventArgs e)
+        private void ColorComBoxControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //throw new NotImplementedException();
+            if (ColorCheckboxControl.IsChecked.Value)
+            {
+                ImageCanvasControl.StrImageBrushStyle = (this.ColorComBoxControl.SelectedItem as StyleFileAndColor).Desc;
+                ImageCanvasControl.InvalidateVisual();
+            }
         }
 
-        /// <summary>
-        /// 清空样式
-        /// </summary>
-        private void CopyFillImage_Click(object sender, RoutedEventArgs e)
+        private void ColoSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            //throw new NotImplementedException();
+            if (ColorCheckboxControl.IsChecked.Value)
+            {
+                ImageCanvasControl.Ratio = e.OldValue;
+                ImageCanvasControl.InvalidateVisual();
+            }
         }
     }
 

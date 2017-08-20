@@ -25,8 +25,7 @@
                     <Button x:Name="button_LoadImageFromLinkAddress" Content="加载复制的图片链接" FontSize="18" Margin="516,301,9.6,129.6" Click="LoadImageFromLinkAddress_Click"/>
                     <Button x:Name="button_LoadImageFromLocalFile" Content="加载复制本地的图片" FontSize="18" Margin="516,361,9.6,69.6" Click="LoadImageFromLocalFile_Click"/>
                     <Label Content="请选择样式" HorizontalAlignment="Left" Margin="516,8,0,0" VerticalAlignment="Top" Width="101"/>
-                    <ComboBox x:Name="ColorComBoxControl" HorizontalAlignment="Left" Margin="516,47,0,0" 
-                              VerticalAlignment="Top" Width="305" Height="40">
+                    <ComboBox x:Name="ColorComBoxControl" HorizontalAlignment="Left" Margin="638,47,0,0" VerticalAlignment="Top" Width="176" Height="40">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -42,16 +41,16 @@
                                     <TextBlock Text="{Binding Desc}" FontSize="18" Margin="0,-15,0,0" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
                                 </Grid>
                             </DataTemplate>
-                            <!--DataTemplate结束-->
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    <Button x:Name="button_ClearFillImage" Content="清空样式" FontSize="18" Margin="515,93,10.6,337.6" Click="ClearFillImage_Click"/>
-                    <Button x:Name="button_CopyFillImage" Content="截取当前图像到剪切板" FontSize="18" Margin="515,153,10.6,277.6" Click="CopyFillImage_Click"/>
+                    <CheckBox x:Name="ColorCheckboxControl" FontSize="20" Content="是否显示" HorizontalAlignment="Left" Margin="516,53,0,0" VerticalAlignment="Top" Height="42" 
+                              Unchecked="ColorCheckboxControl_Checked"
+                              Checked="ColorCheckboxControl_Checked"/>
+                    <Label Content="调整笔触大小" FontSize="20" HorizontalAlignment="Left" Margin="505,104,0,0" VerticalAlignment="Top" Height="40" Width="133"/>
+                    <Slider x:Name="ColoSlider" Margin="638,115,20,325" ValueChanged="ColoSlider_ValueChanged" Maximum="10" Minimum="1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="计算" FontSize="18">
-            </TabItem>
-            <TabItem Header="小工具" FontSize="18">
             </TabItem>
         </TabControl>
     </Grid>

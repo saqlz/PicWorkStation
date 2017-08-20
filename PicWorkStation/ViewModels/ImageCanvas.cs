@@ -46,8 +46,6 @@ namespace PicWorkStation
             this.ContextMenu.Items.Add(uploadLocalFileMenu);
         }
 
-
-
         private void btnLoadImage_Click(object sender, RoutedEventArgs e)
         {
             LoadImageFromClipboard();
@@ -182,11 +180,24 @@ namespace PicWorkStation
             get { return _strImageBrushStyle; }
             set
             {
-                if (string.IsNullOrEmpty(value))
+                _strImageBrushStyle = value;
+            }
+        }
+
+        /// <summary>
+        /// 用于缩色条的宽度
+        /// </summary>
+        private double _ratio = 1.0;
+        public double Ratio
+        {
+            get { return _ratio; }
+            set
+            {
+                if (Math.Abs(value - _ratio) < 1e-5 || value < 1)
                 {
                     return;
                 }
-                _strImageBrushStyle = value;
+                _ratio = value;
             }
         }
 
@@ -198,25 +209,27 @@ namespace PicWorkStation
 
             if (!string.IsNullOrEmpty(_strImageBrushStyle))
             {
+                double horizontalMiddlePos = RenderSize.Width / 2;
+                double verticalMiddlePos = RenderSize.Height / 2;
+
+                //水平方向
                 ImageBrush imgBrush = BrushHelper.GetImageBrush(_strImageBrushStyle);
-                Pen renderPen = new Pen(imgBrush, imgBrush.ImageSource.Width);
                 imgBrush.RelativeTransform = new RotateTransform(90, 0.5, 0.5);
-                dc.DrawLine(renderPen, new System.Windows.Point(100, 100), new System.Windows.Point(imgBrush.ImageSource.Height + 100, 100));
+                Pen horizontalPen = new Pen(imgBrush, imgBrush.ImageSource.Width / _ratio);
+                dc.DrawLine(horizontalPen, new System.Windows.Point(horizontalMiddlePos, verticalMiddlePos), 
+                            new System.Windows.Point(imgBrush.ImageSource.Height + horizontalMiddlePos, verticalMiddlePos));
+                dc.DrawLine(horizontalPen, new System.Windows.Point(horizontalMiddlePos, verticalMiddlePos),
+                            new System.Windows.Point(horizontalMiddlePos - imgBrush.ImageSource.Height, verticalMiddlePos));
 
+                //垂直方向
+                ImageBrush verticalImgBrush = imgBrush.CloneCurrentValue();
+                Pen verticalPen = new Pen(verticalImgBrush, imgBrush.ImageSource.Width / _ratio);
+                verticalImgBrush.RelativeTransform = new RotateTransform(0, 0.5, 0.5);
+                dc.DrawLine(verticalPen, new System.Windows.Point(horizontalMiddlePos, verticalMiddlePos),
+                           new System.Windows.Point(horizontalMiddlePos, verticalMiddlePos + imgBrush.ImageSource.Height));
+                dc.DrawLine(verticalPen, new System.Windows.Point(horizontalMiddlePos, verticalMiddlePos),
+                           new System.Windows.Point(horizontalMiddlePos, verticalMiddlePos - imgBrush.ImageSource.Height));
             }
-
-            //Pen renderPen = new Pen(imgBrush, imgBrush.ImageSource.Width);
-            //dc.DrawLine(renderPen, new System.Windows.Point(30, 10), new System.Windows.Point(30, imgBrush.ImageSource.Height + 10));
-
-
-
-            //      imgBrush.RelativeTransform = new RotateTransform(0, 0.5, 0.5);
-           // dc.DrawLine(renderPen, new System.Windows.Point(30, 10), new System.Windows.Point(30, imgBrush.ImageSource.Height + 10));
-
-            //dc.DrawRectangle(null,redpen, new Rect(0, 0, RenderSize.Width/2, RenderSize.Height/2));
-            // imgBrush.RelativeTransform = new RotateTransform(90, 0.5, 0.5);
-
-
             base.OnRender(dc);
         }
 
