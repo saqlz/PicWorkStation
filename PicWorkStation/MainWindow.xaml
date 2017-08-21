@@ -56,23 +56,54 @@
             </TabItem>
             <TabItem Header="计算" FontSize="18">
                 <Grid>
-                    <Label Content="大小" Margin="112,37,596.6,407.6" FontSize="20"  Height="36" />
-                    <ComboBox x:Name="IComboBoxForWH" Margin="240,40,202.6,409.6"/>
-                    <Label Content="宽度" Margin="111,123,597.6,321.6" FontSize="20"  Height="36" />
-                    <ComboBox x:Name="IComboBoxForThinkness" Margin="240,120,202.6,323.6"/>
-                    <Label Content="面积大小" Margin="104,196,604.6,248.6" FontSize="20"  Height="36" />
-                    <TextBox x:Name="ITxtBoxForArea" HorizontalAlignment="Left"
-                        TextWrapping="Wrap" Text="" Width="390" BorderBrush="Black" Margin="244,196,0,251.6" />
-                    <Label Content="是否填充" Margin="110,279,598.6,165.6" FontSize="20"/>
-                    <CheckBox x:Name="checkBox" Content="是否填充" HorizontalAlignment="Left" Margin="244,285,0,0"
-                              VerticalAlignment="Top" Height="33" Width="144" FontSize="20"/>
+                <Grid Margin="0,30,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="320*"/>
+                        <ColumnDefinition Width="500*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Label Content="瓷砖大小" FontSize="20" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <ComboBox x:Name="IComboBoxForWH" Margin="-80,0,80,0" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <Label Content="缝隙宽度" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                            <ComboBox x:Name="IComboBoxForThinkness" Margin="-81,10,81,-10" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="4">
+                        <Label Content="面积大小" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="4">
+                        <TextBox x:Name="ITxtBoxForArea" VerticalAlignment="Center"
+                              TextWrapping="Wrap" Text="" BorderBrush="Black" Margin="-81,20,86,1" />
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="6">
+                        <Label Content="是否填充" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="118,10,117,7" />
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="6">
+                        <CheckBox x:Name="checkBox" Content="是否填充" FontSize="22" Margin="-77,18,442,0" />
+                    </Grid>
+                </Grid>
+                <Grid>
                     <Button Content="单管计算" Margin="110,331,604.6,98.6" RenderTransformOrigin="-1.128,2.242"/>
                     <Button Content="双管计算" Margin="534,331,180.6,98.6" RenderTransformOrigin="-1.128,2.242"/>
-                    <Label x:Name="smgMessageInfo" Content="" HorizontalAlignment="Left" Margin="44,435,0,0" 
+                    <Label x:Name="smgMessageInfo" Content="" HorizontalAlignment="Left" Margin="110,408,0,0" 
                            VerticalAlignment="Top"/>
                 </Grid>
+              </Grid>
             </TabItem>
-
         </TabControl>
     </Grid>
 </Window>
