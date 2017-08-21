@@ -70,7 +70,6 @@
                     <Button Content="双管计算" Margin="539,349,175.6,80.6" RenderTransformOrigin="-1.128,2.242"/>
                     <Label x:Name="smgMessageInfo" Content="" HorizontalAlignment="Left" Margin="44,435,0,0" 
                            VerticalAlignment="Top"/>
-
                 </Grid>
             </TabItem>
 

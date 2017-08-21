@@ -94,6 +94,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\BrushHelper.cs" />
+    <Compile Include="Helpers\CalculationHelper.cs" />
     <Compile Include="ViewModels\ClipboardMessage.cs" />
     <Compile Include="ViewModels\ImageCanvas.cs" />
     <Page Include="MainWindow.xaml">
@@ -139,7 +140,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\timg.jpg" />
+    <Resource Include="Resource\timg.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -152,6 +153,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\CalProtocols.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\贵族金.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

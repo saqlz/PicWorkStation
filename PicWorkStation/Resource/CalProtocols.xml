@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ItemList Version="1.0">
+    <Item WidthHeight="800mm × 800mm" Thinkness="1mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="25.5"/>
+	<Item WidthHeight="800mm × 800mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="21.2"/>
+	<Item WidthHeight="800mm × 800mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="19.8"/>
+</ItemList>
