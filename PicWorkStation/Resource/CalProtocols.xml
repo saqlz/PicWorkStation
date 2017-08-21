@@ -1,6 +1,113 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <ItemList Version="1.0">
+    <!--800mm × 800mm--->
     <Item WidthHeight="800mm × 800mm" Thinkness="1mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="25.5"/>
-	<Item WidthHeight="800mm × 800mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="21.2"/>
-	<Item WidthHeight="800mm × 800mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="19.8"/>
+    <Item WidthHeight="800mm × 800mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="21.2"/>
+    <Item WidthHeight="800mm × 800mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="19.8"/>
+    <Item WidthHeight="800mm × 800mm" Thinkness="2.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="14.2"/>
+    <Item WidthHeight="800mm × 800mm" Thinkness="1mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="31.2"/>
+    <Item WidthHeight="800mm × 800mm" Thinkness="1.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="28.4"/>
+    <Item WidthHeight="800mm × 800mm" Thinkness="2mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="25.5"/>
+    <Item WidthHeight="800mm × 800mm" Thinkness="2.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="21.3"/>
+    <Item WidthHeight="800mm × 800mm" Thinkness="3mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="17.0"/>
+    
+    <!--400mm × 800mm--->
+    <Item WidthHeight="400mm × 800mm" Thinkness="1mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="19.0"/>
+    <Item WidthHeight="400mm × 800mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="16.0"/>
+    <Item WidthHeight="400mm × 800mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="15.0"/>
+    <Item WidthHeight="400mm × 800mm" Thinkness="2.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="10.6"/>
+    <Item WidthHeight="400mm × 800mm" Thinkness="1mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="23.4"/>
+    <Item WidthHeight="400mm × 800mm" Thinkness="1.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="21.3"/>
+    <Item WidthHeight="400mm × 800mm" Thinkness="2mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="19.1"/>
+    <Item WidthHeight="400mm × 800mm" Thinkness="2.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="16.0"/>
+    <Item WidthHeight="400mm × 800mm" Thinkness="3mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="12.8"/>
+
+    <!--600mm × 600mm--->
+    <Item WidthHeight="600mm × 600mm" Thinkness="1mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="19.0"/>
+    <Item WidthHeight="600mm × 600mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="16.0"/>
+    <Item WidthHeight="600mm × 600mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="15.0"/>
+    <Item WidthHeight="600mm × 600mm" Thinkness="2.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="10.6"/>
+    <Item WidthHeight="600mm × 600mm" Thinkness="1mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="23.4"/>
+    <Item WidthHeight="600mm × 600mm" Thinkness="1.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="21.3"/>
+    <Item WidthHeight="600mm × 600mm" Thinkness="2mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="19.1"/>
+    <Item WidthHeight="600mm × 600mm" Thinkness="2.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="16.0"/>
+    <Item WidthHeight="600mm × 600mm" Thinkness="3mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="12.8"/>
+  
+    <!--500mm × 500mm--->
+    <Item WidthHeight="500mm × 500mm" Thinkness="1mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="16.0"/>
+    <Item WidthHeight="500mm × 500mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="13.3"/>
+    <Item WidthHeight="500mm × 500mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="12.5"/>
+    <Item WidthHeight="500mm × 500mm" Thinkness="2.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="8.9"/>
+    <Item WidthHeight="500mm × 500mm" Thinkness="1mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="19.6"/>
+    <Item WidthHeight="500mm × 500mm" Thinkness="1.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="17.7"/>
+    <Item WidthHeight="500mm × 500mm" Thinkness="2mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="16.0"/>
+    <Item WidthHeight="500mm × 500mm" Thinkness="2.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="13.4"/>
+    <Item WidthHeight="500mm × 500mm" Thinkness="3mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="10.6"/>
+   
+
+    <!--300mm × 600mm--->
+    <Item WidthHeight="300mm × 600mm" Thinkness="1mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="14.3"/>
+    <Item WidthHeight="300mm × 600mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="12.0"/>
+    <Item WidthHeight="300mm × 600mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="11.0"/>
+    <Item WidthHeight="300mm × 600mm" Thinkness="2.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="7.9"/>
+    <Item WidthHeight="300mm × 600mm" Thinkness="1mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="16.0"/>
+    <Item WidthHeight="300mm × 600mm" Thinkness="1.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="14.3"/>
+    <Item WidthHeight="300mm × 600mm" Thinkness="2mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="12.3"/>
+    <Item WidthHeight="300mm × 600mm" Thinkness="2.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="12.0"/>
+    <Item WidthHeight="300mm × 600mm" Thinkness="3mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="9.5"/>
+    
+    <!--400mm × 400mm--->
+    <Item WidthHeight="400mm × 400mm" Thinkness="1mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="12.8"/>
+    <Item WidthHeight="400mm × 400mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="10.6"/>
+    <Item WidthHeight="400mm × 400mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="10.0"/>
+    <Item WidthHeight="400mm × 400mm" Thinkness="2.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="7.1"/>
+    <Item WidthHeight="400mm × 400mm" Thinkness="1mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="14.2"/>
+    <Item WidthHeight="400mm × 400mm" Thinkness="1.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="12.8"/>
+    <Item WidthHeight="400mm × 400mm" Thinkness="2mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="11.0"/>
+    <Item WidthHeight="400mm × 400mm" Thinkness="2.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="10.6"/>
+    <Item WidthHeight="400mm × 400mm" Thinkness="3mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="8.5"/>
+
+    <!--300mm × 300mm--->
+    <Item WidthHeight="300mm × 300mm" Thinkness="1mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="9.5"/>
+    <Item WidthHeight="300mm × 300mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="8.0"/>
+    <Item WidthHeight="300mm × 300mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="7.5"/>
+    <Item WidthHeight="300mm × 300mm" Thinkness="2.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="5.4"/>
+    <Item WidthHeight="300mm × 300mm" Thinkness="1mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="10.6"/>
+    <Item WidthHeight="300mm × 300mm" Thinkness="1.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="9.7"/>
+    <Item WidthHeight="300mm × 300mm" Thinkness="2mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="8.3"/>
+    <Item WidthHeight="300mm × 300mm" Thinkness="2.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="7.9"/>
+    <Item WidthHeight="300mm × 300mm" Thinkness="3mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="6.4"/>
+    
+    <!--200mm × 200mm--->
+    <Item WidthHeight="200mm × 200mm" Thinkness="1mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="6.4"/>
+    <Item WidthHeight="200mm × 200mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="5.4"/>
+    <Item WidthHeight="200mm × 200mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="5.0"/>
+    <Item WidthHeight="200mm × 200mm" Thinkness="2.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="3.5"/>
+    <Item WidthHeight="200mm × 200mm" Thinkness="1mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="7.1"/>
+    <Item WidthHeight="200mm × 200mm" Thinkness="1.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="6.4"/>
+    <Item WidthHeight="200mm × 200mm" Thinkness="2mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="5.5"/>
+    <Item WidthHeight="200mm × 200mm" Thinkness="2.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="5.4"/>
+    <Item WidthHeight="200mm × 200mm" Thinkness="3mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="4.2"/>
+
+    <!--100mm × 100mm--->
+    <Item WidthHeight="100mm × 100mm" Thinkness="1mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="3.2"/>
+    <Item WidthHeight="100mm × 100mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="2.7"/>
+    <Item WidthHeight="100mm × 100mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="2.5"/>
+    <Item WidthHeight="100mm × 100mm" Thinkness="2.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="1.8"/>
+    <Item WidthHeight="100mm × 100mm" Thinkness="1mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="3.5"/>
+    <Item WidthHeight="100mm × 100mm" Thinkness="1.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="3.3"/>
+    <Item WidthHeight="100mm × 100mm" Thinkness="2mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="2.8"/>
+    <Item WidthHeight="100mm × 100mm" Thinkness="2.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="2.7"/>
+    <Item WidthHeight="100mm × 100mm" Thinkness="3mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="2.1"/>
+    
+     <!--50mm × 50mm--->
+    <Item WidthHeight="50mm × 50mm" Thinkness="1mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="1.6"/>
+    <Item WidthHeight="50mm × 50mm" Thinkness="1.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="1.3"/>
+    <Item WidthHeight="50mm × 50mm" Thinkness="2mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="1.1"/>
+    <Item WidthHeight="50mm × 50mm" Thinkness="2.5mm" IsFillup="False" IsDoubleBottle="True" AreaperBottle="0.85"/>
+    <Item WidthHeight="50mm × 50mm" Thinkness="1mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="1.8"/>
+    <Item WidthHeight="50mm × 50mm" Thinkness="1.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="1.5"/>
+    <Item WidthHeight="50mm × 50mm" Thinkness="2mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="2.8"/>
+    <Item WidthHeight="50mm × 50mm" Thinkness="2.5mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="2.7"/>
+    <Item WidthHeight="50mm × 50mm" Thinkness="3mm" IsFillup="True" IsDoubleBottle="True" AreaperBottle="2.1"/>
 </ItemList>
