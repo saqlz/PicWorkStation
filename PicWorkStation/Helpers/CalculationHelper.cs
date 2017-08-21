@@ -19,7 +19,7 @@ namespace PicWorkStation
 
     public static class CalculationHelper
     {
-        private static readonly string FilePath = AppDomain.CurrentDomain.BaseDirectory + @"CalculationInfo";
+        private static readonly string FilePath = AppDomain.CurrentDomain.BaseDirectory + @"CalculationInfo\CalProtocols.xml";
 
         /// <summary>
         /// 加载协议
@@ -41,6 +41,7 @@ namespace PicWorkStation
                 calculationInfo.IsFillup = xElement.Attribute("IsFillup").Value == "True";
                 calculationInfo.IsDoubleBottle = xElement.Attribute("IsDoubleBottle").Value == "True";
                 calculationInfo.AreaperBottle = xElement.Attribute("AreaperBottle").Value;
+                allCalculationInfos.Add(calculationInfo);
             }
             return allCalculationInfos;
         }
@@ -65,10 +66,37 @@ namespace PicWorkStation
             xmlDoc.Save(FilePath);
         }
 
+        /// <summary>
+        /// 瓷砖的长宽
+        /// </summary>
+        public static IList<string> GetAllWidthHeight(IList<CalculationInfo> allCalculationInfos)
+        {
+            var allWidthHeight = new List<string>();
+            foreach (var calculationInfo in allCalculationInfos)
+            {
+                if (!allWidthHeight.Contains(calculationInfo.WidthHeight))
+                {
+                    allWidthHeight.Add(calculationInfo.WidthHeight);
+                }
+            }
+            return allWidthHeight;
+        }
 
-
-
-
+        /// <summary>
+        /// 缝隙大小
+        /// </summary>
+        public static IList<string> GetAllThinkness(IList<CalculationInfo> allCalculationInfos)
+        {
+            var allThinkness = new List<string>();
+            foreach (var calculationInfo in allCalculationInfos)
+            {
+                if (!allThinkness.Contains(calculationInfo.Thinkness))
+                {
+                    allThinkness.Add(calculationInfo.Thinkness);
+                }
+            }
+            return allThinkness;
+        }
 
     }
 }

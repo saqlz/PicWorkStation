@@ -56,18 +56,18 @@
             </TabItem>
             <TabItem Header="计算" FontSize="18">
                 <Grid>
-                    <Label Content="大小" Margin="112,65,596.6,379.6" FontSize="20"/>
-                    <ComboBox x:Name="IComboBoxForWH" Margin="244,55,202.6,376.6"/>
-                    <Label Content="宽度" Margin="111,144,597.6,300.6" FontSize="20"/>
-                    <ComboBox x:Name="IComboBoxForThinkness" Margin="244,130,202.6,301.6"/>
-                    <Label Content="面积大小" Margin="111,212,597.6,232.6" FontSize="20"/>
-                    <TextBox x:Name="ITxtBoxForArea" HorizontalAlignment="Left" Height="41" Margin="245,212,0,0"
-                        TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="390"/>
-                    <Label Content="是否填充" Margin="111,280,597.6,164.6" FontSize="20"/>
-                    <CheckBox x:Name="checkBox" Content="是否填充" HorizontalAlignment="Left" Margin="245,284,0,0"
+                    <Label Content="大小" Margin="112,37,596.6,407.6" FontSize="20"  Height="36" />
+                    <ComboBox x:Name="IComboBoxForWH" Margin="240,40,202.6,409.6"/>
+                    <Label Content="宽度" Margin="111,123,597.6,321.6" FontSize="20"  Height="36" />
+                    <ComboBox x:Name="IComboBoxForThinkness" Margin="240,120,202.6,323.6"/>
+                    <Label Content="面积大小" Margin="104,196,604.6,248.6" FontSize="20"  Height="36" />
+                    <TextBox x:Name="ITxtBoxForArea" HorizontalAlignment="Left"
+                        TextWrapping="Wrap" Text="" Width="390" BorderBrush="Black" Margin="244,196,0,251.6" />
+                    <Label Content="是否填充" Margin="110,279,598.6,165.6" FontSize="20"/>
+                    <CheckBox x:Name="checkBox" Content="是否填充" HorizontalAlignment="Left" Margin="244,285,0,0"
                               VerticalAlignment="Top" Height="33" Width="144" FontSize="20"/>
-                    <Button Content="单管计算" Margin="111,350,603.6,79.6" RenderTransformOrigin="-1.128,2.242"/>
-                    <Button Content="双管计算" Margin="539,349,175.6,80.6" RenderTransformOrigin="-1.128,2.242"/>
+                    <Button Content="单管计算" Margin="110,331,604.6,98.6" RenderTransformOrigin="-1.128,2.242"/>
+                    <Button Content="双管计算" Margin="534,331,180.6,98.6" RenderTransformOrigin="-1.128,2.242"/>
                     <Label x:Name="smgMessageInfo" Content="" HorizontalAlignment="Left" Margin="44,435,0,0" 
                            VerticalAlignment="Top"/>
                 </Grid>

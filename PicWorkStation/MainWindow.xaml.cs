@@ -25,13 +25,20 @@ namespace PicWorkStation
         {
             InitializeComponent();
 
-            //Combobox Item
+            //Combobox Item Pic
             var styleFileAndColor = new List<StyleFileAndColor>();
             styleFileAndColor.AddRange(BrushHelper.GetImageBrushFullPath().Select(brushFullPath => 
                     new StyleFileAndColor() {Image = brushFullPath, Desc = System.IO.Path.GetFileNameWithoutExtension(brushFullPath)}));
             this.ColorComBoxControl.ItemsSource = styleFileAndColor;
             this.ColorComBoxControl.SelectedIndex = 0;
             this.ColorComBoxControl.SelectionChanged += ColorComBoxControl_SelectionChanged;
+
+            //Combobox Item Width and Height
+            var allCalculationInfos = CalculationHelper.LoadAllCalculationInfos();
+            this.IComboBoxForWH.ItemsSource = CalculationHelper.GetAllWidthHeight(allCalculationInfos);
+            this.IComboBoxForWH.SelectedIndex = 0;
+            this.IComboBoxForThinkness.ItemsSource = CalculationHelper.GetAllThinkness(allCalculationInfos);
+            this.IComboBoxForThinkness.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -152,6 +159,9 @@ namespace PicWorkStation
             }
         }
 
+        /// <summary>
+        /// 调节笔触
+        /// </summary>
         private void ColoSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (ColorCheckboxControl.IsChecked.Value)
@@ -160,6 +170,10 @@ namespace PicWorkStation
                 ImageCanvasControl.InvalidateVisual();
             }
         }
+
+
+
+
     }
 
     public class StyleFileAndColor
