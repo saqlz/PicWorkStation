@@ -176,20 +176,38 @@ namespace PicWorkStation
 
         private void btnSingleBolCal_Click(object sender, RoutedEventArgs e)
         {
-            this.smgMessageInfo.Content = string.Format("购买使用单管，瓷砖大小是{0}，面积是{1}，缝隙大小是{2}，{3}填充，需要",
+            try
+            {
+                this.smgMessageInfo.Content = string.Format("购买使用单管，瓷砖大小是{0}，面积是{1}，缝隙大小是{2}，{3}填充，需要",
                                                             this.IComboBoxForWH.SelectedValue, this.ITxtBoxForArea.Text, this.IComboBoxForThinkness.SelectedValue,
                                                             this.ICheckBoxForFillUp.IsChecked.Value ? "是" : "否");
-            //smgMessageInfo2.Content = string.Format("{0}管", );
+                smgMessageInfo2.Content = string.Format("{0}管", CalculationHelper.CalNumOfBottle(allCalculationInfos, Convert.ToDouble(this.ITxtBoxForArea.Text),
+                                                this.IComboBoxForWH.SelectedValue.ToString(), this.IComboBoxForThinkness.SelectedValue.ToString(),
+                                                this.ICheckBoxForFillUp.IsChecked.Value, false));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                this.smgMessageInfo.Content = "单管计算出现问题，请重新输入";
+            }
         }
 
         private void btnDoubleBolCal_Click(object sender, RoutedEventArgs e)
         {
-            this.smgMessageInfo.Content = string.Format("购买使用双管，瓷砖大小是{0}，面积是{1}，缝隙大小是{2}，{3}填充，需要",
-                                                          this.IComboBoxForWH.SelectedValue, this.ITxtBoxForArea.Text, this.IComboBoxForThinkness.SelectedValue,
-                                                          this.ICheckBoxForFillUp.IsChecked.Value ? "是" : "否");
-            smgMessageInfo2.Content = string.Format("{0}管", CalculationHelper.CalNumOfBottle(allCalculationInfos, Convert.ToDouble(this.ITxtBoxForArea.Text), 
-                                            this.IComboBoxForWH.SelectedValue.ToString(), this.IComboBoxForThinkness.SelectedValue.ToString(),
-                                            this.ICheckBoxForFillUp.IsChecked.Value, true));
+            try
+            {
+                this.smgMessageInfo.Content = string.Format("购买使用双管，瓷砖大小是{0}，面积是{1}，缝隙大小是{2}，{3}填充，需要",
+                                                              this.IComboBoxForWH.SelectedValue, this.ITxtBoxForArea.Text, this.IComboBoxForThinkness.SelectedValue,
+                                                              this.ICheckBoxForFillUp.IsChecked.Value ? "是" : "否");
+                smgMessageInfo2.Content = string.Format("{0}管", CalculationHelper.CalNumOfBottle(allCalculationInfos, Convert.ToDouble(this.ITxtBoxForArea.Text), 
+                                                this.IComboBoxForWH.SelectedValue.ToString(), this.IComboBoxForThinkness.SelectedValue.ToString(),
+                                                this.ICheckBoxForFillUp.IsChecked.Value, true));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                this.smgMessageInfo.Content = "双管计算出现问题，请重新输入";
+            }
         }
     }
 
