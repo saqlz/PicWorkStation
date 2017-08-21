@@ -20,6 +20,7 @@ namespace PicWorkStation
     public static class CalculationHelper
     {
         private static readonly string FilePath = AppDomain.CurrentDomain.BaseDirectory + @"CalculationInfo\CalProtocols.xml";
+       
 
         /// <summary>
         /// 加载协议
@@ -98,5 +99,65 @@ namespace PicWorkStation
             return allThinkness;
         }
 
+        /// <summary>
+        /// 双管
+        /// </summary>
+        public static bool IsExistDoubleBottleConfig(IList<CalculationInfo> allCalculationInfos)
+        {
+            foreach (var calculationInfo in allCalculationInfos)
+            {
+                if (calculationInfo.IsDoubleBottle)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 单管
+        /// </summary>
+        public static bool IsExistSingleBottleConfig(IList<CalculationInfo> allCalculationInfos)
+        {
+            foreach (var calculationInfo in allCalculationInfos)
+            {
+                if (!calculationInfo.IsDoubleBottle)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static int CalNumOfBottle(IList<CalculationInfo> allCalculationInfos, double area,
+              string widthHeight, string thinkness, bool isFillup, bool isDobule = true)
+        {
+            var calculationInfos = new List<CalculationInfo>();
+            foreach (var calculationInfo in allCalculationInfos)
+            {
+                if (calculationInfo.WidthHeight == widthHeight && calculationInfo.IsDoubleBottle == isDobule
+                    && calculationInfo.IsFillup == isFillup)
+                {
+                    var thinknessStr1 = calculationInfo.Thinkness.Substring(0, calculationInfo.Thinkness.Length - 2);
+                    var thinknessStr2 = thinkness.Substring(0, thinkness.Length - 2);
+                    if(Convert.ToDouble(thinknessStr1) == Convert.ToDouble(thinknessStr2))
+                         calculationInfos.Add(calculationInfo);
+                }
+            }
+
+            int maxVal = 0;
+            foreach (var calculationInfo in calculationInfos)
+            {
+                var calVal = area / Convert.ToDouble(calculationInfo.AreaperBottle);
+                int calCelingVal = (int)Math.Ceiling(calVal);
+                if (calCelingVal - calVal <= 0.0001)
+                {
+                    calCelingVal += 1;
+                }
+                if (calCelingVal > maxVal) maxVal = calCelingVal;
+            }
+
+            return maxVal;
+        }
     }
 }

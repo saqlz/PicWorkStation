@@ -21,6 +21,7 @@ namespace PicWorkStation
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static IList<CalculationInfo> allCalculationInfos = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,11 +35,13 @@ namespace PicWorkStation
             this.ColorComBoxControl.SelectionChanged += ColorComBoxControl_SelectionChanged;
 
             //Combobox Item Width and Height
-            var allCalculationInfos = CalculationHelper.LoadAllCalculationInfos();
+            allCalculationInfos = CalculationHelper.LoadAllCalculationInfos();
             this.IComboBoxForWH.ItemsSource = CalculationHelper.GetAllWidthHeight(allCalculationInfos);
             this.IComboBoxForWH.SelectedIndex = 0;
             this.IComboBoxForThinkness.ItemsSource = CalculationHelper.GetAllThinkness(allCalculationInfos);
             this.IComboBoxForThinkness.SelectedIndex = 0;
+            this.btnSingleBolCal.IsEnabled = CalculationHelper.IsExistSingleBottleConfig(allCalculationInfos);
+            this.btnDoubleBolCal.IsEnabled = CalculationHelper.IsExistDoubleBottleConfig(allCalculationInfos);
         }
 
         /// <summary>
@@ -171,9 +174,23 @@ namespace PicWorkStation
             }
         }
 
+        private void btnSingleBolCal_Click(object sender, RoutedEventArgs e)
+        {
+            this.smgMessageInfo.Content = string.Format("购买使用单管，瓷砖大小是{0}，面积是{1}，缝隙大小是{2}，{3}填充，需要",
+                                                            this.IComboBoxForWH.SelectedValue, this.ITxtBoxForArea.Text, this.IComboBoxForThinkness.SelectedValue,
+                                                            this.ICheckBoxForFillUp.IsChecked.Value ? "是" : "否");
+            //smgMessageInfo2.Content = string.Format("{0}管", );
+        }
 
-
-
+        private void btnDoubleBolCal_Click(object sender, RoutedEventArgs e)
+        {
+            this.smgMessageInfo.Content = string.Format("购买使用双管，瓷砖大小是{0}，面积是{1}，缝隙大小是{2}，{3}填充，需要",
+                                                          this.IComboBoxForWH.SelectedValue, this.ITxtBoxForArea.Text, this.IComboBoxForThinkness.SelectedValue,
+                                                          this.ICheckBoxForFillUp.IsChecked.Value ? "是" : "否");
+            smgMessageInfo2.Content = string.Format("{0}管", CalculationHelper.CalNumOfBottle(allCalculationInfos, Convert.ToDouble(this.ITxtBoxForArea.Text), 
+                                            this.IComboBoxForWH.SelectedValue.ToString(), this.IComboBoxForThinkness.SelectedValue.ToString(),
+                                            this.ICheckBoxForFillUp.IsChecked.Value, true));
+        }
     }
 
     public class StyleFileAndColor

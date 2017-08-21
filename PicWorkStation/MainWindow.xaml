@@ -93,15 +93,17 @@
                         <Label Content="是否填充" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="118,10,117,7" />
                     </Grid>
                     <Grid Grid.Column="1" Grid.Row="6">
-                        <CheckBox x:Name="checkBox" Content="是否填充" FontSize="22" Margin="-77,18,442,0" />
+                        <CheckBox x:Name="ICheckBoxForFillUp" Content="是否填充" FontSize="22" Margin="-77,18,442,0" />
                     </Grid>
                 </Grid>
                 <Grid>
-                    <Button Content="单管计算" Margin="110,331,604.6,98.6" RenderTransformOrigin="-1.128,2.242"/>
-                    <Button Content="双管计算" Margin="534,331,180.6,98.6" RenderTransformOrigin="-1.128,2.242"/>
-                    <Label x:Name="smgMessageInfo" Content="" HorizontalAlignment="Left" Margin="110,408,0,0" 
+                    <Button x:Name="btnSingleBolCal" Content="单管计算" Margin="110,331,604.6,98.6" RenderTransformOrigin="-1.128,2.242" Click="btnSingleBolCal_Click"/>
+                    <Button x:Name="btnDoubleBolCal"  Content="双管计算" Margin="534,331,180.6,98.6" RenderTransformOrigin="-1.128,2.242" Click="btnDoubleBolCal_Click"/>
+                    <Label x:Name="smgMessageInfo" Content="" HorizontalAlignment="Left" Margin="68,399,0,0" 
                            VerticalAlignment="Top"/>
-                </Grid>
+                    <Label x:Name="smgMessageInfo2" FontSize="25" FontWeight="Bold" FontStyle="Italic" Foreground="Red" Content="" HorizontalAlignment="Left" Margin="68,418,0,0" 
+                        VerticalAlignment="Top"/>
+                    </Grid>
               </Grid>
             </TabItem>
         </TabControl>
